@@ -3,7 +3,7 @@ import AVFoundation
 
 class GameScene: SKScene {
     var viewController: GameViewController?
-    let alienSpawnRate = 5
+    let alienSpawnRate = 20
     var isGameOver = false
     var gamePaused = false
     var removeAliens = false
@@ -138,7 +138,7 @@ class GameScene: SKScene {
     }
 
     func spawnPowerup() {
-        if random() % 1000 < 1 {
+        if random() % 100 < 1 {
             let x = CGFloat(random() % Int(size.width))
             let y = CGFloat(random() % Int(size.height))
             let powerup = Powerup(x: x, y: y).addTo(self)
