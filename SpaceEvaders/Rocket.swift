@@ -6,19 +6,19 @@ class Rocket: Sprite {
     init(x: CGFloat, y: CGFloat) {
         super.init(named: "rocket", x: x, y: y)
         self.setScale(2.5)
-        fire()
+//        fire()
     }
 
-    func fire() {
-        for index in 0 ... 2 {
-            fireArray.append(SKTexture(imageNamed: "fire\(index)"))
-        }
-        let fire = SKSpriteNode(texture: fireArray[0]);
-        fire.anchorPoint = CGPoint(x: 0.5, y: 1.3)
-        self.addChild(fire)
-        let animateAction = SKAction.animateWithTextures(self.fireArray, timePerFrame: 0.10);
-        fire.runAction(SKAction.repeatActionForever(animateAction))
-    }
+//    func fire() {
+//        for index in 0 ... 2 {
+//            fireArray.append(SKTexture(imageNamed: "fire\(index)"))
+//        }
+//        let fire = SKSpriteNode(texture: fireArray[0]);
+//        fire.anchorPoint = CGPoint(x: 0.5, y: 1.3)
+//        self.addChild(fire)
+//        let animateAction = SKAction.animateWithTextures(self.fireArray, timePerFrame: 0.10);
+//        fire.runAction(SKAction.repeatActionForever(animateAction))
+//    }
 
     func moveTo(x: CGFloat, y: CGFloat) {
         let speed: CGFloat = 12

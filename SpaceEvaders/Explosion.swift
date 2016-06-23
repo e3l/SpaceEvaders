@@ -6,8 +6,8 @@ class Explosion: Sprite {
     }
 
     func boom(main: GameScene) {
-        let explode = SKEmitterNode(fileNamed: "Explode.sks")
-        self.addChild(explode!)
+//        let explode = SKEmitterNode(fileNamed: "Explode.sks")
+//        self.addChild(explode!)
         self.runAction(
         SKAction.sequence([
                 SKAction.scaleBy(7, duration: 0.5),
