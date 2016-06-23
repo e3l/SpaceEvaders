@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44CB24C61D1C570100D49217 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB24C51D1C570100D49217 /* Asteroid.swift */; };
 		537F781B1D1C45A20050367E /* furwars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 537F781A1D1C45A20050367E /* furwars.jpg */; };
 		5401CE1A1ADB02D8002D20F2 /* followoff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5401CE181ADB02D8002D20F2 /* followoff.png */; };
 		5401CE1B1ADB02D8002D20F2 /* followon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5401CE191ADB02D8002D20F2 /* followon.png */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44CB24C51D1C570100D49217 /* Asteroid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
 		537F781A1D1C45A20050367E /* furwars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = furwars.jpg; sourceTree = "<group>"; };
 		5401CE181ADB02D8002D20F2 /* followoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followoff.png; sourceTree = "<group>"; };
 		5401CE191ADB02D8002D20F2 /* followon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followon.png; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				547BDB851A60AD16009F1B50 /* Explode.sks */,
 				547B0DAE1A5F5D3E00B3985C /* Scoreboard.swift */,
 				547B0DB01A5F64CE00B3985C /* Background.swift */,
+				44CB24C51D1C570100D49217 /* Asteroid.swift */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				547BDB8C1A60C1B1009F1B50 /* Pause.swift in Sources */,
 				541036881A55EFB000FA8BD2 /* Alien.swift in Sources */,
 				540A9B161B1534F200A8F6E0 /* FadeText.swift in Sources */,
+				44CB24C61D1C570100D49217 /* Asteroid.swift in Sources */,
 				5410368A1A55EFD200FA8BD2 /* Sprite.swift in Sources */,
 				54D1EDCA1A846FB50058E8DB /* Utility.swift in Sources */,
 				54055C721AF07D1500FDD966 /* Iapp.swift in Sources */,
