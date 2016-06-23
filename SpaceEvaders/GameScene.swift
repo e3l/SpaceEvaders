@@ -242,7 +242,7 @@ class GameScene: SKScene {
         } else {
             alien.move()
         }
-        if y < 0 || y > size.height {
+        if alien.isDisabled() {
             alien.removeFromParent()
         }
     }
