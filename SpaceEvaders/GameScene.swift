@@ -3,7 +3,7 @@ import AVFoundation
 
 class GameScene: SKScene {
     var viewController: GameViewController?
-    let alienSpawnRate = 20
+    let alienSpawnRate = 15
     var isGameOver = false
     var gamePaused = false
     var removeAliens = false

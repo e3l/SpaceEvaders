@@ -6,7 +6,7 @@ class MainMenuScene: SKScene {
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor.blackColor()
         addChild(Utility.skyFullofStars(size.width, height: size.height))
-        PopupMenu(size: size, title: "Space Evaders", label: "Play", id: "start").addTo(self)
+        PopupMenu(size: size, title: "Fur Wars", label: "Play", id: "start").addTo(self)
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
