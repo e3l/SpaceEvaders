@@ -24,7 +24,7 @@ class GameScene: SKScene {
         scoreboard.viewController = self.viewController
         pause = Pause(size: size, x: size.width - 50, y: size.height - size.height / 6).addTo(self)
         if Options.option.get("music") {
-            loopBackground("Chamber-of-Jewels")
+            loopBackground("Star-Wars")
             audioPlayer.play()
         }
     }
@@ -48,7 +48,7 @@ class GameScene: SKScene {
                 if Options.option.get("music") {
                     audioPlayer.stop()
                 } else {
-                    loopBackground("Chamber-of-Jewels")
+                    loopBackground("Star-Wars")
                     //audioPlayer.play()
                 }
             default:
@@ -75,7 +75,7 @@ class GameScene: SKScene {
     func pauseGame() {
         if gamePaused {
             if Options.option.get("music") {
-                loopBackground("Chamber-of-Jewels")
+                loopBackground("Star-Wars")
                 audioPlayer.play()
             }
             gamePaused = false
