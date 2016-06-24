@@ -3,7 +3,7 @@ import AVFoundation
 
 class GameScene: SKScene {
     var viewController: GameViewController?
-    let alienSpawnRate = 15
+    let alienSpawnRate = 10
     let asteroidSpawnRate = 3
     var isGameOver = false
     var gamePaused = false
@@ -24,7 +24,7 @@ class GameScene: SKScene {
         scoreboard.viewController = self.viewController
         pause = Pause(size: size, x: size.width - 50, y: size.height - size.height / 6).addTo(self)
         if Options.option.get("music") {
-            loopBackground("Chamber-of-Jewels")
+            loopBackground("Star-Wars")
             audioPlayer.play()
         }
     }
@@ -48,7 +48,7 @@ class GameScene: SKScene {
                 if Options.option.get("music") {
                     audioPlayer.stop()
                 } else {
-                    loopBackground("Chamber-of-Jewels")
+                    loopBackground("Star-Wars")
                     //audioPlayer.play()
                 }
             default:
@@ -75,7 +75,7 @@ class GameScene: SKScene {
     func pauseGame() {
         if gamePaused {
             if Options.option.get("music") {
-                loopBackground("Chamber-of-Jewels")
+                loopBackground("Star-Wars")
                 audioPlayer.play()
             }
             gamePaused = false
@@ -164,7 +164,7 @@ class GameScene: SKScene {
 
 
     func spawnPowerup() {
-        if random() % 100 < 1 {
+        if random() % 500 < 1 {
             let x = CGFloat(random() % Int(size.width))
             let y = CGFloat(random() % Int(size.height))
             let powerup = Powerup(x: x, y: y).addTo(self)
@@ -246,6 +246,8 @@ class GameScene: SKScene {
         }
         if alien.isDisabled() {
             alien.removeFromParent()
+            let aexp = Explosion(x: alien.position.x, y: alien.position.y).addTo(self) as! Explosion
+            aexp.boom(self, x: false)
         }
     }
     

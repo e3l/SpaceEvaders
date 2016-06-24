@@ -3,7 +3,7 @@ import SpriteKit
 class Alien: Sprite {
     var startAtTop: Bool!
     var disabled: Bool = false
-    let vel: CGFloat = 4
+    let vel: CGFloat = 3.5
 
     init(x: CGFloat, y: CGFloat, startAtTop: Bool) {
         super.init(named: "alien", x: x, y: y)
