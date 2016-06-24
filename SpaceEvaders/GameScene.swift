@@ -164,7 +164,7 @@ class GameScene: SKScene {
 
 
     func spawnPowerup() {
-        if random() % 500 < 1 {
+        if random() % 500 < 3 {
             let x = CGFloat(random() % Int(size.width))
             let y = CGFloat(random() % Int(size.height))
             let powerup = Powerup(x: x, y: y).addTo(self)
