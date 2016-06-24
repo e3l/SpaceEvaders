@@ -144,8 +144,10 @@ class GameScene: SKScene {
         if random() % 1000 < asteroidSpawnRate {
             let randomX = 10 + random() % Int(size.width) - 10
             let startY = startAtTop.boolValue ? size.height : 0
+            let destX = 10 + random() % Int(size.width) - 10
+            let destY = startAtTop.boolValue ? -1 : size.height + 1
             let arrowY = startAtTop.boolValue ? size.height - 200 : 200
-            let asteroid = Asteroid(x: CGFloat(randomX), y: startY, startAtTop: startAtTop).addTo(self)
+            let asteroid = Asteroid(x: CGFloat(randomX), y: startY, startAtTop: startAtTop, dx: CGFloat(destX), dy: destY).addTo(self)
             asteroid.zPosition = 2
             if Utility.checkPremium() && Options.option.get("indicators") {
                 let arrow = Sprite(named: "credits", x: CGFloat(randomX), y: arrowY, scale: 0.05).addTo(self)
@@ -257,19 +259,27 @@ class GameScene: SKScene {
             removeAliens = false
         }
     }
-    
+
     func asteroidBrains(asteroid: Asteroid) {
         let y = asteroid.position.y
         if !isGameOver {
             if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(rocket.frame, 10, 10)) {
                 gameOver()
             }
+            self.enumerateChildNodesWithName("alien") {
+                node, stop in
+                let alien = node as! Alien
+                self.alienBrains(alien)
+                if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(alien.frame, 10, 10)) {
+                      alien.setDisabled()
+                }
+            }
             if removeAliens {
                 asteroid.removeFromParent()
             }
-            asteroid.moveTo(CGPointMake(rocket.position.x, rocket.position.y))
+            asteroid.move()
         } else {
-            asteroid.moveTo(CGPointMake(rocket.position.x, rocket.position.y))
+            asteroid.move()
         }
         if y < 0 || y > size.height {
             asteroid.removeFromParent()

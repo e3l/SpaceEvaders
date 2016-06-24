@@ -11,28 +11,32 @@ import SpriteKit
 class Asteroid: Sprite {
     var startAtTop: Bool!
     var disabled: Bool = false
-    let vel: CGFloat = 4
+    let vel: CGFloat = 5
+    var dx: CGFloat!
+    var dy: CGFloat!
     
-    init(x: CGFloat, y: CGFloat, startAtTop: Bool) {
-        super.init(named: "asteroid", x: x, y: y)
+    init(x: CGFloat, y: CGFloat, startAtTop: Bool, dx: CGFloat, dy: CGFloat) {
+        self.dx = dx
+        self.dy = dy
         self.startAtTop = startAtTop
+        super.init(named: "asteroid", x: x, y: y)
         self.runAction(SKAction.repeatActionForever(SKAction.rotateByAngle(1, duration: 1)))
     }
     
     
-    func moveTo(point: CGPoint) {
+    func move() {
         let height = parent?.scene?.size.height
         if height == nil {
             return
         }
         
-            var dx = point.x - self.position.x
-            var dy = point.y - self.position.y
-            let mag = sqrt(dx * dx + dy * dy)
-            // Normalize and scale
-            dx = dx / mag * vel
-            dy = dy / mag * vel
-            moveBy(dx, dy: dy)
+        var dx = self.dx
+        var dy = self.dy
+        let mag = sqrt(dx * dx + dy * dy)
+        // Normalize and scale
+        dx = dx / mag * vel
+        dy = dy / mag * vel
+        moveBy(dx, dy: dy)
     }
     
     
