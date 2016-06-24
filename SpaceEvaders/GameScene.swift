@@ -244,6 +244,8 @@ class GameScene: SKScene {
         }
         if alien.isDisabled() {
             alien.removeFromParent()
+            let aexp = Explosion(x: alien.position.x, y: alien.position.y).addTo(self) as! Explosion
+            aexp.boom(self, x: false)
         }
     }
     
