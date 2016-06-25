@@ -219,7 +219,7 @@ class GameScene: SKScene {
     func alienBrains(alien: Alien) {
         let y = alien.position.y
         if !isGameOver {
-            if CGRectIntersectsRect(CGRectInset(alien.frame, 25, 25), CGRectInset(rocket.frame, 10, 10)) {
+            if CGRectIntersectsRect(CGRectInset(alien.frame, 10, 10), CGRectInset(rocket.frame, 10, 10)) {
                 gameOver()
             }
             //disabled by laser
@@ -229,9 +229,6 @@ class GameScene: SKScene {
                 if (!startAtTop && y > middle) || (startAtTop && y < middle) {
                     alien.setDisabled()
                     scoreboard.addScore(1)
-                    if Options.option.get("sound") {
-                        runAction(SKAction.playSoundFileNamed("Alien_Disable.mp3", waitForCompletion: false))
-                    }
                 }
             }
             if removeAliens {
@@ -248,6 +245,9 @@ class GameScene: SKScene {
             alien.removeFromParent()
             let aexp = Explosion(x: alien.position.x, y: alien.position.y).addTo(self) as! Explosion
             aexp.boom(self, x: false)
+            if Options.option.get("sound") {
+                runAction(SKAction.playSoundFileNamed("Alien_Disable.mp3", waitForCompletion: false))
+            }
         }
     }
     
@@ -273,7 +273,7 @@ class GameScene: SKScene {
                 let alien = node as! Alien
                 self.alienBrains(alien)
                 if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(alien.frame, 10, 10)) {
-                      alien.setDisabled()
+                    alien.setDisabled()
                 }
             }
             if removeAliens {

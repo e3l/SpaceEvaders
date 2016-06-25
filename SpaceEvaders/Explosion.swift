@@ -6,10 +6,10 @@ class Explosion: Sprite {
     }
 
     func boom(main: GameScene, x:Bool=true) {
-//        if x {
-//            let explode = SKEmitterNode(fileNamed: "Explode.sks")
-//            self.addChild(explode!)
-//        }
+        if x {
+            let explode = SKEmitterNode(fileNamed: "Explode.sks")
+            self.addChild(explode!)
+        }
         self.runAction(
         SKAction.sequence([
                 SKAction.scaleBy(7, duration: 0.5),
