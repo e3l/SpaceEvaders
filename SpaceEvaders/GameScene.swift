@@ -226,7 +226,7 @@ class GameScene: SKScene {
             if !alien.isDisabled() {
                 let middle = size.height / 2
                 let startAtTop = alien.startAtTop.boolValue
-                if (!startAtTop && y > middle) || (startAtTop && y < middle) {
+                if (!startAtTop && y > middle - 25) || (startAtTop && y < middle + 25) {
                     alien.setDisabled()
                     scoreboard.addScore(1)
                 }
@@ -265,25 +265,20 @@ class GameScene: SKScene {
     func asteroidBrains(asteroid: Asteroid) {
         let y = asteroid.position.y
         if !isGameOver {
-            if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(rocket.frame, 10, 10)) {
+            if CGRectIntersectsRect(CGRectInset(asteroid.frame, 15, 15), CGRectInset(rocket.frame, 10, 10)) {
                 gameOver()
             }
             self.enumerateChildNodesWithName("alien") {
                 node, stop in
                 let alien = node as! Alien
-                self.alienBrains(alien)
-                if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(alien.frame, 10, 10)) {
+                if CGRectIntersectsRect(CGRectInset(asteroid.frame, 15, 15), CGRectInset(alien.frame, 10, 10)) {
                     alien.setDisabled()
                 }
             }
-            if removeAliens {
-                asteroid.removeFromParent()
-            }
+    
             asteroid.move()
-        } else {
-            asteroid.move()
-        }
-        if y < 0 || y > size.height {
+       
+            if y < 0 || y > size.height {
             asteroid.removeFromParent()
         }
     }
