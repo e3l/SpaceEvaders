@@ -219,7 +219,7 @@ class GameScene: SKScene {
     func alienBrains(alien: Alien) {
         let y = alien.position.y
         if !isGameOver {
-            if CGRectIntersectsRect(CGRectInset(alien.frame, 10, 10), CGRectInset(rocket.frame, 10, 10)) {
+            if CGRectIntersectsRect(CGRectInset(alien.frame, 25, 25), CGRectInset(rocket.frame, 25, 25)) {
                 gameOver()
             }
             //disabled by laser
@@ -265,13 +265,13 @@ class GameScene: SKScene {
     func asteroidBrains(asteroid: Asteroid) {
         let y = asteroid.position.y
         if !isGameOver {
-            if CGRectIntersectsRect(CGRectInset(asteroid.frame, 15, 15), CGRectInset(rocket.frame, 10, 10)) {
+            if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(rocket.frame, 25, 25)) {
                 gameOver()
             }
             self.enumerateChildNodesWithName("alien") {
                 node, stop in
                 let alien = node as! Alien
-                if CGRectIntersectsRect(CGRectInset(asteroid.frame, 15, 15), CGRectInset(alien.frame, 10, 10)) {
+                if CGRectIntersectsRect(CGRectInset(asteroid.frame, 25, 25), CGRectInset(alien.frame, 25, 25)) {
                     alien.setDisabled()
                 }
             }
@@ -280,11 +280,10 @@ class GameScene: SKScene {
        
             if y < 0 || y > size.height {
             asteroid.removeFromParent()
+            }
         }
     }
     
-
-
     func enumeratePowerups() {
         self.enumerateChildNodesWithName("powerup") {
             node, stop in
